@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ProductManagement.Models.Product>
+
+<h2>Danh sách sản phẩm</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+            <th>Danh mục</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Description</td>
+                <td>@(product.Category?.Name ?? "No Category")</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-primary">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Add" class="btn btn-success">Thêm sản phẩm</a>

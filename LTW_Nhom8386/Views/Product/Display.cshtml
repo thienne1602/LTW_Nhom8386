@@ -1,0 +1,10 @@
+﻿@model ProductManagement.Models.Product
+
+<h2>Chi tiết sản phẩm</h2>
+<p><strong>Tên:</strong> @Model.Name</p>
+<p><strong>Giá:</strong> @Model.Price</p>
+<p><strong>Mô tả:</strong> @Model.Description</p>
+
+<a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+<a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-warning">Sửa</a>
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Xóa</a>
